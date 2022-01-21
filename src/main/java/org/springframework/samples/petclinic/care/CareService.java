@@ -2,12 +2,18 @@ package org.springframework.samples.petclinic.care;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
-public class CareService {    
+@Service
+public class CareService {
+    
+    @Autowired
+	CareProvisionRepository careProvisionRepository;
 
     public List<Care> getAllCares(){
-        return null;
+        return careProvisionRepository.findAllCares();
     }
 
     public List<Care> getAllCompatibleCares(String petTypeName){
@@ -15,7 +21,7 @@ public class CareService {
     }
 
     public Care getCare(String careName) {
-        return null;
+        return careProvisionRepository.getCare(careName);
     }
 
     
