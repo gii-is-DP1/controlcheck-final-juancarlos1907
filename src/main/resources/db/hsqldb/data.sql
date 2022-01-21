@@ -76,7 +76,7 @@ INSERT INTO compPetTypes(care_id,type_id) VALUES(1,1);
 INSERT INTO compPetTypes(care_id,type_id) VALUES(2,1);
 INSERT INTO compPetTypes(care_id,type_id) VALUES(2,2);
 
-
+INSERT INTO inCompPetTypes(care_id,care_id) VALUES(1,2);
 
 
 
