@@ -13,7 +13,7 @@ public interface CareProvisionRepository extends CrudRepository<CareProvision,In
     CareProvision save(CareProvision p);
     @Query("SELECT c FROM CareProvision c")
 	List<Care> findAllCares();
-    @Query("SELECT c FROM Care c WHERE ")
+    @Query("SELECT c FROM Care c WHERE c.petTypeName=:petTypeName")
     List<Care> findCompatibleCares(@Param("name") String petTypeName);
     //Care findCareByName(String name);
     //List<CareProvision> findCaresProvidedByVisitId(Integer visitId);
