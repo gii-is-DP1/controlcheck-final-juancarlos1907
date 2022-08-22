@@ -34,11 +34,10 @@ public class Care extends BaseEntity {
     
     @ManyToMany(cascade = CascadeType.ALL)
     @NotEmpty
-    @JoinTable(name="compPetTypes")
+    @JoinTable(name="comp_pet_types ")
     Set<PetType> compatiblePetTypes;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @NotEmpty
-    @JoinTable(name="incompPetTypes")
+    @JoinTable(name="incomp_pet_types ")
     Set<Care> incompatibleCares;
 }

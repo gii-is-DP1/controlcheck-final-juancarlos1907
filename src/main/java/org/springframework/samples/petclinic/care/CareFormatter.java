@@ -15,6 +15,8 @@ public class CareFormatter implements Formatter<Care>{
 
     @Autowired
     CareProvisionRepository careProvisionRepository;
+    @Autowired
+    CareService careService;
 
     @Override
     public String print(Care object, Locale locale) {
@@ -23,13 +25,13 @@ public class CareFormatter implements Formatter<Care>{
 
     @Override
     public Care parse(String text, Locale locale) throws ParseException {
-        List<CareProvision> cuidados = careProvisionRepository.findAll();
-        for(CareProvision c: cuidados){
-            if(c.getCare().equals(text)){
-                return c.getCare();
-            }
+        Care c = careService.getCare(text);
+        if(c==null){
+            throw new ParseException("Care not found: " + text, 0);
+        }else{
+            return c;
         }
-        throw new ParseException("Care not found: " + text, 0);
+        
     }
     
 }

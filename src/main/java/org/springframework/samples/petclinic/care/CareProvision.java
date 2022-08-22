@@ -18,19 +18,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "careProv")
+@Table(name = "care_prov ")
 public class CareProvision extends BaseEntity {   
     
-    @ManyToOne
-    @JoinColumn(name = "visit_id")
-    Visit visit;
-    
     @NotNull
-    @Min(0)
+	@Min(0)
     double duration;
     
-    @ManyToOne
+	@ManyToOne()
+	@JoinColumn(name="visit_id")
+    Visit visit;
+
     @NotNull
+    @ManyToOne
     @JoinColumn(name="care_id")
-    Care care;   
+    Care care; 
 }
