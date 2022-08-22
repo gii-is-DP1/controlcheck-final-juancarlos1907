@@ -1,3 +1,4 @@
+
 -- One admin user, named admin1 with passwor 4dm1n and authority admin
 INSERT INTO users(username,password,enabled) VALUES ('admin1','4dm1n',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (1,'admin1','admin');
@@ -7,6 +8,7 @@ INSERT INTO authorities(id,username,authority) VALUES (2,'owner1','owner');
 -- One vet user, named vet1 with passwor v3t
 INSERT INTO users(username,password,enabled) VALUES ('vet1','v3t',TRUE);
 INSERT INTO authorities(id,username,authority) VALUES (3,'vet1','veterinarian');
+
 
 INSERT INTO vets(id, first_name,last_name) VALUES (1, 'James', 'Carter');
 INSERT INTO vets(id, first_name,last_name) VALUES (2, 'Helen', 'Leary');
@@ -61,4 +63,19 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01',
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
+
+
+
+INSERT INTO care(id,description,name) VALUES(1,'We will brush the hair of your pet.','Hair brushing');
+INSERT INTO care(id,description,name) VALUES(2,'We will apply strong chemical products in the hair of your pet to remove any kind of flea or insect present.','Chemical flea removal');
+INSERT INTO care_prov(id,duration,care_id,visit_id) VALUES(1,0.5,2,1);
+INSERT INTO care_prov(id,duration,care_id,visit_id) VALUES(2,0.25,1,2);
+INSERT INTO comp_pet_types(care_id,compatible_pet_types_id) VALUES(1,2);
+INSERT INTO comp_pet_types(care_id,compatible_pet_types_id) VALUES(1,1);
+INSERT INTO comp_pet_types(care_id,compatible_pet_types_id) VALUES(2,1);
+INSERT INTO comp_pet_types(care_id,compatible_pet_types_id) VALUES(2,2);
+
+INSERT INTO incomp_pet_types(care_id,incompatible_cares_id) VALUES(1,2);
+
+
 
